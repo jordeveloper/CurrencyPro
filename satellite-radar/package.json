@@ -1,0 +1,31 @@
+{
+  "name": "satellite-radar-webapp",
+  "version": "1.0.0",
+  "description": "Application web de suivi des satellites en temps réel avec visualisation 3D",
+  "main": "index.html",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "start:node": "npx http-server -p 8000"
+  },
+  "keywords": [
+    "satellite",
+    "tracking",
+    "radar",
+    "space",
+    "3d",
+    "threejs",
+    "n2yo",
+    "ISS",
+    "real-time"
+  ],
+  "author": "",
+  "license": "GPL-3.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/satellite-radar-webapp"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}
