@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radar Spatial - Démo Hors Ligne</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <h1>🛰️ Radar Spatial - Démo</h1>
+            <p>Mode démonstration avec données simulées (pas besoin de clé API)</p>
+        </header>
+
+        <div id="control-panel">
+            <div class="control-group">
+                <label>Position Démo:</label>
+                <select id="demo-location">
+                    <option value="paris">Paris, France</option>
+                    <option value="newyork">New York, USA</option>
+                    <option value="tokyo">Tokyo, Japon</option>
+                    <option value="sydney">Sydney, Australie</option>
+                    <option value="london">Londres, UK</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label>Scénario de Démo:</label>
+                <select id="demo-scenario">
+                    <option value="iss">ISS au-dessus de vous</option>
+                    <option value="gps">Constellation GPS</option>
+                    <option value="starlink">Satellites Starlink</option>
+                    <option value="weather">Satellites météo</option>
+                    <option value="all">Tous types</option>
+                </select>
+            </div>
+
+            <button id="start-demo" class="btn-primary">Lancer la Démo</button>
+            <button id="stop-demo" class="btn-secondary" disabled>Arrêter</button>
+            
+            <div style="margin-top: 20px; padding: 15px; background: var(--dark-bg); border-radius: 8px; border: 2px solid var(--warning);">
+                <strong style="color: var(--warning);">⚠️ Mode Démo</strong>
+                <p style="margin: 10px 0 0 0; color: var(--text-dim); font-size: 0.9em;">
+                    Cette démo utilise des données simulées. Pour suivre de vrais satellites en temps réel, 
+                    utilisez <code style="background: var(--card-bg); padding: 2px 6px; border-radius: 4px;">index.html</code> 
+                    avec une clé API N2YO.
+                </p>
+            </div>
+        </div>
+
+        <div id="main-content">
+            <div id="globe-container">
+                <canvas id="globe-canvas"></canvas>
+                <div id="globe-info">
+                    <h3>Vue Globale (Démo)</h3>
+                    <p>Rotation: Clic gauche + Glisser</p>
+                    <p>Zoom: Molette</p>
+                </div>
+            </div>
+
+            <div id="radar-container">
+                <canvas id="radar-canvas"></canvas>
+                <div id="radar-info">
+                    <h3>Vue Radar (Démo)</h3>
+                    <div id="satellite-count">0 satellites simulés</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="satellite-list-container">
+            <h2>Satellites Simulés</h2>
+            <div id="satellite-list">
+                <p class="no-data">Lancez une démo pour voir les satellites.</p>
+            </div>
+        </div>
+
+        <div id="status-bar">
+            <span id="status-text">Mode Démo - Prêt</span>
+            <span id="last-update">Dernière mise à jour: Jamais</span>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="demo.js"></script>
+</body>
+</html>
