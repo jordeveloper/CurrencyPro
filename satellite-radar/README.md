@@ -11,37 +11,42 @@ Une application web interactive pour visualiser et suivre les satellites et engi
 - **Filtrage**: Filtrez par catégorie de satellites (ISS, GPS, météo, communication, etc.)
 - **Rayon Configurable**: Ajustez le rayon de recherche de 50 à 5000 km
 - **Liste Détaillée**: Informations complètes sur chaque satellite détecté
+- **Mode Démo**: Testez sans clé API avec des données simulées ([DEMO.md](DEMO.md))
+
+📖 **[Voir toutes les fonctionnalités détaillées](FEATURES.md)**
 
 ## 🚀 Démarrage Rapide
 
-### Prérequis
+### Deux Options
 
-1. **Clé API N2YO**: 
-   - Inscrivez-vous sur [N2YO.com](https://www.n2yo.com/login/register/)
-   - Obtenez votre clé API gratuite
-   - L'API est gratuite avec des limites de transactions
+#### Option 1 - Mode Démo (Immédiat, sans clé API)
+```bash
+# Ouvrez directement
+open demo-offline.html
+```
+➡️ **[Guide du mode démo](DEMO.md)**
 
-### Installation
+#### Option 2 - Mode Production (Données réelles)
 
-1. Clonez ou téléchargez ce dépôt
-2. Ouvrez `index.html` dans un navigateur web moderne
-
-**OU**
-
-Servez les fichiers avec un serveur HTTP local:
+**Prérequis**: Clé API N2YO gratuite ([obtenir ici](https://www.n2yo.com/login/register/))
 
 ```bash
 # Avec Python 3
 python -m http.server 8000
 
-# Avec Node.js
-npx http-server
-
-# Avec PHP
-php -S localhost:8000
+# Ouvrir http://localhost:8000
 ```
 
-Puis ouvrez `http://localhost:8000` dans votre navigateur.
+➡️ **[Guide de démarrage rapide (5 min)](QUICKSTART.md)**
+
+### Documentation Complète
+
+| Document | Description |
+|----------|-------------|
+| **[QUICKSTART.md](QUICKSTART.md)** | Démarrage en 5 minutes |
+| **[INSTALLATION.md](INSTALLATION.md)** | Installation et déploiement |
+| **[API_GUIDE.md](API_GUIDE.md)** | Documentation API N2YO |
+| **[INDEX.md](INDEX.md)** | Navigation dans la doc |
 
 ### Utilisation
 
