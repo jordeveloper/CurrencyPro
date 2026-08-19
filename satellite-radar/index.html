@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radar Spatial - Suivi des Satellites en Temps Réel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <h1>🛰️ Radar Spatial</h1>
+            <p>Suivi des satellites et engins spatiaux en temps réel</p>
+        </header>
+
+        <!-- Control Panel -->
+        <div id="control-panel">
+            <div class="control-group">
+                <label for="api-key">Clé API N2YO:</label>
+                <input type="text" id="api-key" placeholder="Entrez votre clé API N2YO">
+                <button id="save-api-key">Enregistrer</button>
+                <a href="https://www.n2yo.com/login/register/" target="_blank" class="help-link">Obtenir une clé API</a>
+            </div>
+
+            <div class="control-group">
+                <label>Votre Position:</label>
+                <div class="position-info">
+                    <span id="user-position">Détection en cours...</span>
+                    <button id="update-position">Actualiser</button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="search-radius">Rayon de recherche (km):</label>
+                <input type="range" id="search-radius" min="50" max="5000" value="1000" step="50">
+                <span id="radius-value">1000 km</span>
+            </div>
+
+            <div class="control-group">
+                <label for="category">Catégorie de satellites:</label>
+                <select id="category">
+                    <option value="0">Tous</option>
+                    <option value="52" selected>Station Spatiale (ISS)</option>
+                    <option value="1">GPS Opérationnel</option>
+                    <option value="2">GLONASS Opérationnel</option>
+                    <option value="3">Galileo</option>
+                    <option value="4">Satellites Géo</option>
+                    <option value="10">Météo</option>
+                    <option value="15">Communication</option>
+                    <option value="18">Observation Terrestre</option>
+                    <option value="20">Amateur Radio</option>
+                </select>
+            </div>
+
+            <button id="start-tracking" class="btn-primary">Démarrer le Suivi</button>
+            <button id="stop-tracking" class="btn-secondary" disabled>Arrêter</button>
+        </div>
+
+        <!-- Main Content -->
+        <div id="main-content">
+            <!-- 3D Globe View -->
+            <div id="globe-container">
+                <canvas id="globe-canvas"></canvas>
+                <div id="globe-info">
+                    <h3>Vue Globale</h3>
+                    <p>Rotation: Clic gauche + Glisser</p>
+                    <p>Zoom: Molette</p>
+                </div>
+            </div>
+
+            <!-- Radar View -->
+            <div id="radar-container">
+                <canvas id="radar-canvas"></canvas>
+                <div id="radar-info">
+                    <h3>Vue Radar (Au-dessus de vous)</h3>
+                    <div id="satellite-count">0 satellites détectés</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Satellite List -->
+        <div id="satellite-list-container">
+            <h2>Satellites Détectés</h2>
+            <div id="satellite-list">
+                <p class="no-data">Aucun satellite détecté. Démarrez le suivi.</p>
+            </div>
+        </div>
+
+        <!-- Status Bar -->
+        <div id="status-bar">
+            <span id="status-text">Prêt</span>
+            <span id="last-update">Dernière mise à jour: Jamais</span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
